@@ -14,7 +14,7 @@ type City struct {
 }
 
 func (u *City) Get(ctx context.Context, db *sql.DB, in *cities.Id) error {
-	query := `SELECT ids, name FROM cities where id = $1`
+	query := `SELECT id, name FROM cities where id = $1`
 	err := db.QueryRowContext(ctx, query, in.Id).Scan(&u.Pb.Id, &u.Pb.Name)
 	if err != nil {
 		u.Log.Println("Error on Query : ", err)
