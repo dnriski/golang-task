@@ -63,3 +63,15 @@ func (u *City) Delete(ctx context.Context, db *sql.DB, in *cities.Id) error {
 	}
 	return nil
 }
+
+// TRY Update Data
+func (u *City) Update(ctx context.Context, db *sql.DB, in *cities.City) error {
+	query := `UPDATE cities SET name = $2 WHERE id = $1;`
+
+	_, err := db.ExecContext(ctx, query, in.Id, in.Name)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
