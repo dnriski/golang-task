@@ -6,3 +6,8 @@ message City {
   int32 id = 1;
   string name = 2;
 }
+
+message EmptyMessage{}
+message CitiesStream{
+  City city = 1;
+}

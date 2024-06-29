@@ -7,4 +7,5 @@ import "city_message.proto";
 
 service CitiesService {
   rpc GetCity(City) returns (City) {}
+  rpc GetCities(EmptyMessage) returns (stream CitiesStream) {}
 }
